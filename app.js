@@ -128,5 +128,7 @@ window.CREA = {
   saveState,
   goToPage,
   bindForm,
-  ensureOnRightPage
+  ensureOnRightPage,
+  validatePage1
 };
+
