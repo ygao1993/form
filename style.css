@@ -1,0 +1,116 @@
+html, body { height: 100%; }
+
+body{
+  font-family: Arial, sans-serif;
+  margin: 0;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)),
+    url("logo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.topo{
+  width: 100%;
+  background: white;
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topo img{
+  max-width: 340px;
+  width: 92%;
+  height: auto;
+}
+
+.wrap{
+  max-width: 820px;
+  margin: 18px auto 40px;
+  padding: 0 14px;
+}
+
+.section-title{
+  font-weight: 800;
+  font-size: 18px;
+  margin: 14px 0 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+}
+
+.card{
+  background: rgba(255,255,255,0.96);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  padding: 16px;
+}
+
+.grid{
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.col-12{ grid-column: span 12; }
+.col-6{ grid-column: span 6; }
+.col-4{ grid-column: span 4; }
+.col-2{ grid-column: span 2; }
+
+label{ display:block; font-weight:700; margin-bottom:6px; }
+
+input, textarea{
+  width:100%;
+  padding:10px;
+  font-size:14px;
+  border:1px solid rgba(0,0,0,0.18);
+  border-radius:10px;
+  background: rgba(255,255,255,0.98);
+  box-sizing:border-box;
+}
+
+textarea{ min-height:70px; resize: vertical; }
+
+.radio-group{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:8px 10px;
+  border:1px solid rgba(0,0,0,0.12);
+  border-radius:10px;
+  background: rgba(255,255,255,0.8);
+}
+
+.radio-item{ display:flex; gap:6px; align-items:center; font-weight:600; }
+
+.actions{
+  margin-top: 14px;
+  display:flex;
+  gap:10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+button{
+  border:none;
+  border-radius:10px;
+  padding:12px 14px;
+  font-size:15px;
+  cursor:pointer;
+  min-width:160px;
+}
+
+.btn{ background:#111; color:#fff; }
+.btn.secondary{ background: rgba(0,0,0,0.12); color:#111; }
+
+@media (max-width: 720px){
+  .col-6,.col-4,.col-2{ grid-column: span 12; }
+  button{ width:100%; min-width: unset; }
+}
