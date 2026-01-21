@@ -11,41 +11,76 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
+      margin: 0;
+      min-height: 100vh;
+
+      /* Fundo com logo + transparência */
+      background:
+        linear-gradient(
+          rgba(255,255,255,0.88),
+          rgba(255,255,255,0.88)
+        ),
+        url("logo.png");
+
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
+
+    .card {
+      max-width: 480px;
+      margin: 40px auto;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
+
     input {
       width: 100%;
       padding: 8px;
       margin-top: 5px;
       box-sizing: border-box;
+      font-size: 14px;
     }
+
     button {
       margin-top: 20px;
       padding: 12px;
       width: 100%;
       font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
-  <h2>Formulário – CREA</h2>
+  <div class="card">
+    <h2>Formulário – CREA</h2>
 
-  <label>Nome</label>
-  <input id="nome" placeholder="Digite o nome" />
+    <label>Nome</label>
+    <input id="nome" placeholder="Digite o nome" />
 
-  <label>CPF</label>
-  <input id="cpf" placeholder="000.000.000-00" />
+    <label>CPF</label>
+    <input id="cpf" placeholder="000.000.000-00" />
 
-  <label>Área da obra (m²)</label>
-  <input id="area" type="number" placeholder="Ex: 1200" />
+    <label>Área da obra (m²)</label>
+    <input id="area" type="number" placeholder="Ex: 1200" />
 
-  <button onclick="gerarExcel()">Gerar Excel</button>
+    <button onclick="gerarExcel()">Gerar Excel</button>
+  </div>
 
   <script>
     function gerarExcel() {
