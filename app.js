@@ -94,6 +94,34 @@ function ensureOnRightPage(expected) {
   }
 }
 
+function validatePage1() {
+  const state = loadState();
+
+  const bairro = (state.data.bairro ?? "").trim();
+  const cidade = (state.data.cidade ?? "").trim();
+  const cepRaw = (state.data.cep ?? "").trim();
+
+  // mantém só números do CEP
+  const cepDigits = cepRaw.replace(/\D/g, "");
+
+  const errors = [];
+
+  if (!bairro) errors.push("Preencha o bairro.");
+  if (!cidade) errors.push("Preencha a cidade (São Paulo).");
+
+  if (cepDigits && cepDigits.length !== 8) {
+    errors.push("CEP inválido: deve ter 8 dígitos (ex: 00000-000).");
+  }
+
+  if (errors.length) {
+    alert(errors.join("\n"));
+    return { ok: false };
+  }
+
+  return { ok: true };
+}
+
+
 // Expor funções globais para os botões
 window.CREA = {
   loadState,
