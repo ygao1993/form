@@ -9,32 +9,54 @@
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
   <style>
+    html, body {
+      height: 100%;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      min-height: 100vh;
 
-      /* Fundo: logo cobrindo tudo + leve transparência */
-      background:
+      /* FUNDO FIXO (não dança) */
+      background-image:
         linear-gradient(
-          rgba(255,255,255,0.70),  /* ↓ MENOS transparente */
-          rgba(255,255,255,0.70)
+          rgba(255,255,255,0.65),
+          rgba(255,255,255,0.65)
         ),
         url("logo.png");
 
-      background-size: cover;       /* Cobre a tela inteira */
-      background-position: center;
+      background-size: cover;
+      background-position: center center;
       background-repeat: no-repeat;
       background-attachment: fixed;
     }
 
+    /* TOPO */
+    .topo {
+      width: 100%;
+      background: white;
+      text-align: center;
+      padding: 10px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topo img {
+      max-width: 320px;
+      width: 90%;
+      height: auto;
+    }
+
+    /* CONTEÚDO */
     .card {
       max-width: 480px;
       margin: 40px auto;
       padding: 24px;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
     h2 {
@@ -67,6 +89,13 @@
 </head>
 
 <body>
+
+  <!-- CABEÇALHO -->
+  <div class="topo">
+    <img src="topo.png" alt="CREA-SP">
+  </div>
+
+  <!-- FORMULÁRIO -->
   <div class="card">
     <h2>Formulário – CREA</h2>
 
@@ -100,5 +129,6 @@
       XLSX.writeFile(wb, "formulario_crea.xlsx");
     }
   </script>
+
 </body>
 </html>
