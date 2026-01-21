@@ -2,103 +2,95 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formulário CREA - Página 1</title>
+
+  <!-- Viewport ajustado para iOS (sem zoom ao focar input) -->
+  <meta name="viewport"
+        content="width=device-width,
+                 initial-scale=1,
+                 viewport-fit=cover,
+                 maximum-scale=1,
+                 user-scalable=no" />
+
+  <title>Formulário CREA – Local da Obra</title>
+
   <link rel="stylesheet" href="style.css" />
   <script src="app.js"></script>
 </head>
+
 <body>
-  <div class="topo">
-    <img src="topo.png" alt="CREA-SP">
-  </div>
+  <!-- IMPORTANTE: scroll fica AQUI, não no body -->
+  <div class="page">
 
-  <div class="wrap">
-    <div class="section-title">Local da obra</div>
+    <!-- TOPO FIXO -->
+    <div class="topo">
+      <img src="topo.png" alt="CREA-SP">
+    </div>
 
-    <div class="card">
-      <div class="grid">
+    <!-- CONTEÚDO -->
+    <div class="wrap">
 
-        <div class="col-4">
-          <label>Bairro</label>
-          <input data-key="bairro" placeholder="Ex: Vila Mariana" />
-        </div>
-
-        <div class="col-4">
-          <label>Cidade</label>
-          <input data-key="cidade" placeholder="Cidade" />
-        </div>
-
-        <div class="col-4">
-          <label>CEP</label>
-          <input data-key="cep" placeholder="00000-000" inputmode="numeric" />
-        </div>
-
-        <div class="col-12">
-          <label>Empreendimento</label>
-          <input data-key="empreendimento" placeholder="Nome do empreendimento" />
-        </div>
-
-        <div class="col-12">
-          <label>Tipo/Natureza</label>
-          <div class="radio-group">
-            <label class="radio-item"><input type="radio" name="tipo" value="Resid" data-key="tipo_natureza"> Resid</label>
-            <label class="radio-item"><input type="radio" name="tipo" value="Coml" data-key="tipo_natureza"> Coml</label>
-            <label class="radio-item"><input type="radio" name="tipo" value="Ind" data-key="tipo_natureza"> Ind</label>
-            <label class="radio-item"><input type="radio" name="tipo" value="Mista" data-key="tipo_natureza"> Mista</label>
-          </div>
-        </div>
-
-        <div class="col-4">
-          <label>Área (m²)</label>
-          <input type="number" data-key="area_m2" placeholder="0" />
-        </div>
-
-        <div class="col-4">
-          <label>Nº Pavimentos</label>
-          <input type="number" data-key="num_pavimentos" placeholder="0" />
-        </div>
-
-        <div class="col-4">
-          <label>Processo nº</label>
-          <input data-key="processo_num" placeholder="Ex: 1020.2023/..." />
-        </div>
-
-        <div class="col-4">
-          <label>Alvará nº</label>
-          <input data-key="alvara_num" placeholder="Número do alvará" />
-        </div>
-
-        <div class="col-4">
-          <label>de</label>
-          <input type="date" data-key="alvara_data" />
-        </div>
-
-        <div class="col-4"></div>
-
-        <div class="col-6">
-          <label>Proprietário</label>
-          <input data-key="proprietario" placeholder="Nome do proprietário" />
-        </div>
-
-        <div class="col-6">
-          <label>CPF/CNPJ</label>
-          <input data-key="cpf_cnpj" placeholder="CPF ou CNPJ" inputmode="numeric" />
-        </div>
-
-        <div class="col-12">
-          <label>Endereço</label>
-          <textarea data-key="endereco" placeholder="Rua, número, complemento..."></textarea>
-        </div>
-
+      <div class="section-title">
+        Local da obra
       </div>
 
-      <div class="actions">
-        <button class="btn secondary" type="button" onclick="CREA.goToPage(1)">Salvar</button>
-        <button class="btn" type="button" onclick="CREA.goToPage(2)">Próximo</button>
+      <div class="card">
+        <div class="grid">
+
+          <!-- Bairro -->
+          <div class="col-12">
+            <label>Bairro</label>
+            <input
+              data-key="bairro"
+              placeholder="Ex: Vila Mariana"
+              autocomplete="address-level3"
+            />
+          </div>
+
+          <!-- Cidade -->
+          <div class="col-12">
+            <label>Cidade</label>
+            <input
+              data-key="cidade"
+              placeholder="Cidade"
+              autocomplete="address-level2"
+            />
+          </div>
+
+          <!-- CEP -->
+          <div class="col-12">
+            <label>CEP</label>
+            <input
+              data-key="cep"
+              placeholder="00000-000"
+              inputmode="numeric"
+              autocomplete="postal-code"
+            />
+          </div>
+
+        </div>
+
+        <!-- AÇÕES -->
+        <div class="actions">
+          <button
+            class="btn secondary"
+            type="button"
+            onclick="CREA.goToPage(1)">
+            Salvar
+          </button>
+
+          <button
+            class="btn"
+            type="button"
+            onclick="CREA.goToPage(2)">
+            Próximo
+          </button>
+        </div>
+
       </div>
     </div>
   </div>
 
+  <!-- INICIALIZAÇÃO -->
   <script>
     CREA.ensureOnRightPage(1);
     CREA.bindForm();
